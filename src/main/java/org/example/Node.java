@@ -1,17 +1,22 @@
 package org.example;
 
+import com.google.gson.Gson;
+import org.json.JSONObject;
+
 import java.io.*;
 import java.net.*;
 import java.util.*;
 
 public class Node {
     private List<String> peersIPAddresses;
+    private List<Transaction> txPool;
     private ServerSocket serverSocket;
-    private String ipAddress;
+    private final String ipAddress;
     private List<Block> blockchain;
 
     public Node(String ipAddress, int port) {
         this.ipAddress = ipAddress;
+        this.txPool = new ArrayList<>();
         peersIPAddresses = new ArrayList<>();
         try {
             serverSocket = new ServerSocket(port);
@@ -24,10 +29,23 @@ public class Node {
     public void joinNetwork(String peerIPAddress) {
         peersIPAddresses.add(peerIPAddress);
     }
+    public void addToPool (Transaction tx) { this.txPool.add(tx); }
+    public void removeFromPool (Transaction tx) {
+        if( this.txPool.contains(tx)) {
+            this.txPool.remove(tx);
+        } else {
+            System.out.println("Couldn't fine transaction");
+        }
+    }
 
-    public void broadcastMessage(String message) {
+    public void broadcastTx(Transaction tx) {
         for (String peerIPAddress : peersIPAddresses) {
-            sendMessage(peerIPAddress, message);
+            sendMessage(peerIPAddress, tx);
+        }
+    }
+    public void broadcastBlock(Block block) {
+        for (String peerIPAddress : peersIPAddresses) {
+            sendMessage(peerIPAddress, block);
         }
     }
 
@@ -46,6 +64,19 @@ public class Node {
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             String message = in.readLine();
+            Gson gson = new Gson();
+            JSONObject jsonObject = new JSONObject(message);
+
+
+            if (jsonObject.has("location")) {
+                Transaction tx = gson.fromJson(message, Transaction.class);
+                this.addToPool(tx);
+            } else if (jsonObject.has("nonce")) {
+                Block block = gson.fromJson(message, Block.class);
+                // Check last hash of the blockchain
+                // Add block to the blockchain
+            }
+
             System.out.println("Received message from peer " + clientSocket.getInetAddress() + ": " + message);
             clientSocket.close();
         } catch (IOException e) {
@@ -53,11 +84,25 @@ public class Node {
         }
     }
 
-    private void sendMessage(String peerIPAddress, String message) {
+    private void sendMessage(String peerIPAddress, Transaction tx) {
         try {
+            Gson gson = new Gson();
+            String jsonTx = gson.toJson(tx);
             Socket socket = new Socket(peerIPAddress, getPort());
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-            out.println(message);
+            out.println(jsonTx);
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void sendMessage(String peerIPAddress, Block block) {
+        try {
+            Gson gson = new Gson();
+            String jsonBlock = gson.toJson(block);
+            Socket socket = new Socket(peerIPAddress, getPort());
+            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+            out.println(jsonBlock);
             socket.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -70,5 +115,9 @@ public class Node {
 
     public int getPort() {
         return serverSocket.getLocalPort();
+    }
+
+    public List<Transaction> getTxPool() {
+        return this.txPool;
     }
 }

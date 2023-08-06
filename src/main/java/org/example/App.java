@@ -16,13 +16,13 @@ public class App
         Node node2 = new Node(ip1, 5001);
 //        Node node3 = new Node(ip1, 5002);
 
-        node1.joinNetwork(ip2);
+//        node1.joinNetwork(ip2);
 //        node1.joinNetwork(ip3);
 
         BroadcastAPI api1 = new BroadcastAPI(node1, 8000);
         api1.start();
 
         // Start broadcasting messages
-        node1.broadcastMessage("Hello from node 1!");
+//        node1.broadcastMessage("Hello from node 1!");
     }
 }

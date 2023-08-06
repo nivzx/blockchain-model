@@ -1,4 +1,6 @@
 package org.example;
+import com.google.gson.*;
+import org.json.JSONObject;
 
 import spark.*;
 
@@ -15,10 +17,36 @@ public class BroadcastAPI {
     private void initializeWebServer() {
         Spark.port(port);
 
-        Spark.post("/send-message", (request, response) -> {
-            String message = request.body();
-            node.broadcastMessage(message);
-            return "Message broadcasted!";
+        Spark.post("/send-tx", (request, response) -> {
+            String requestBody = request.body();
+
+            // Parse the JSON object from the request body
+            JSONObject jsonObject = new JSONObject(requestBody);
+            // Extract the values for location and signalLevel
+            String location = jsonObject.getString("location");
+            double signalLevel = jsonObject.getDouble("signalLevel");
+
+            // Create a new Transaction object
+            Transaction transaction = new Transaction(location, signalLevel);
+            node.broadcastTx(transaction);
+            return "Transaction broadcasted!";
+        });
+
+        Spark.post("/send-block", (request, response) -> {
+            String requestBody = request.body();
+
+            Gson gson = new Gson();
+            Block block = gson.fromJson(requestBody, Block.class);
+
+            for (Transaction tx : block.getTransactions()) {
+                if (node.getTxPool().contains(tx)) {
+                    node.removeFromPool(tx);
+                }
+            }
+
+            node.broadcastBlock(block);
+
+            return "Block broadcasted";
         });
     }
 
