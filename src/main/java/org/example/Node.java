@@ -40,12 +40,12 @@ public class Node {
 
     public void broadcastTx(Transaction tx) {
         for (String peerIPAddress : peersIPAddresses) {
-            sendMessage(peerIPAddress, tx);
+            sendTx(peerIPAddress, tx);
         }
     }
     public void broadcastBlock(Block block) {
         for (String peerIPAddress : peersIPAddresses) {
-            sendMessage(peerIPAddress, block);
+            sendBlock(peerIPAddress, block);
         }
     }
 
@@ -84,7 +84,7 @@ public class Node {
         }
     }
 
-    private void sendMessage(String peerIPAddress, Transaction tx) {
+    private void sendTx(String peerIPAddress, Transaction tx) {
         try {
             Gson gson = new Gson();
             String jsonTx = gson.toJson(tx);
@@ -96,7 +96,7 @@ public class Node {
             e.printStackTrace();
         }
     }
-    private void sendMessage(String peerIPAddress, Block block) {
+    private void sendBlock(String peerIPAddress, Block block) {
         try {
             Gson gson = new Gson();
             String jsonBlock = gson.toJson(block);
