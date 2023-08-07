@@ -34,7 +34,7 @@ public class Node {
         if( this.txPool.contains(tx)) {
             this.txPool.remove(tx);
         } else {
-            System.out.println("Couldn't fine transaction");
+            System.out.println("Couldn't find transaction");
         }
     }
 
@@ -71,13 +71,22 @@ public class Node {
             if (jsonObject.has("location")) {
                 Transaction tx = gson.fromJson(message, Transaction.class);
                 this.addToPool(tx);
+                System.out.println(tx);
             } else if (jsonObject.has("nonce")) {
                 Block block = gson.fromJson(message, Block.class);
-                // Check last hash of the blockchain
+
+                // Check last hash of the blockchain (validation)
+
+                // If valid -> Remove Txs from tx pool
+                for (Transaction tx : block.getTransactions()) {
+                    if (this.getTxPool().contains(tx)) {
+                        this.removeFromPool(tx);
+                    }
+                }
+                System.out.println(block);
+
                 // Add block to the blockchain
             }
-
-            System.out.println("Received message from peer " + clientSocket.getInetAddress() + ": " + message);
             clientSocket.close();
         } catch (IOException e) {
             e.printStackTrace();

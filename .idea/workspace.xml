@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa7d71be-9b7f-46e0-b786-729676038b63" name="Changes" comment="Transactions added">
+    <list default="true" id="aa7d71be-9b7f-46e0-b786-729676038b63" name="Changes" comment="Naming corrected">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BroadcastAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BroadcastAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Node.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,12 +75,20 @@
       <option name="project" value="LOCAL" />
       <updated>1691356511211</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Naming corrected">
+      <created>1691356802004</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1691356802004</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Transactions added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Transactions added" />
+    <MESSAGE value="Naming corrected" />
+    <option name="LAST_COMMIT_MESSAGE" value="Naming corrected" />
   </component>
 </project>
