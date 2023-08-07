@@ -1,9 +1,4 @@
 package org.example;
-
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main(String[] args) {
@@ -15,8 +10,8 @@ public class App
         Node node2 = new Node(ip2, 5001);
         Node node3 = new Node(ip3, 5002);
 
-        node2.joinNetwork(ip1);
-        node2.joinNetwork(ip3);
+        node2.joinNetwork(node1.getIpAddress());
+        node2.joinNetwork(node3.getIpAddress());
 
         BroadcastAPI api2 = new BroadcastAPI(node2, 8000);
         api2.start();
