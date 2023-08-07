@@ -1,5 +1,8 @@
 package org.example;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 public class Transaction {
     private String location;
     private double signalLevel;
@@ -26,5 +29,11 @@ public class Transaction {
 
     public void setSignalLevel(double signalLevel) {
         this.signalLevel = signalLevel;
+    }
+
+    @Override
+    public String toString() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(this);
     }
 }

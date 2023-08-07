@@ -71,7 +71,6 @@ public class Node {
             if (jsonObject.has("location")) {
                 Transaction tx = gson.fromJson(message, Transaction.class);
                 this.addToPool(tx);
-                System.out.println(tx);
             } else if (jsonObject.has("nonce")) {
                 Block block = gson.fromJson(message, Block.class);
 
