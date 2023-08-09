@@ -9,14 +9,16 @@ public class Block {
     private int blockIndex;
     private List<Transaction> transactions;
     private String previousHash;
+    private String hash;
     private int nonce;
     private long timestamp;
 
     // Constructor
-    public Block(int blockIndex, List<Transaction> transactions, String previousHash, int nonce) {
+    public Block(int blockIndex, List<Transaction> transactions, String previousHash,String hash, int nonce) {
         this.blockIndex = blockIndex;
         this.transactions = transactions;
         this.previousHash = previousHash;
+        this.hash = hash;
         this.nonce = nonce;
         this.timestamp = System.currentTimeMillis();
     }
@@ -32,6 +34,9 @@ public class Block {
 
     public String getPreviousHash() {
         return previousHash;
+    }
+    public String getHash() {
+        return hash;
     }
 
     public int getNonce() {
@@ -53,6 +58,9 @@ public class Block {
 
     public void setPreviousHash(String previousHash) {
         this.previousHash = previousHash;
+    }
+    public void setHash(String hash) {
+        this.hash = hash;
     }
 
     public void setNonce(int nonce) {

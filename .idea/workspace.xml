@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa7d71be-9b7f-46e0-b786-729676038b63" name="Changes" comment="ToString overload added">
+    <list default="true" id="aa7d71be-9b7f-46e0-b786-729676038b63" name="Changes" comment="blockchain class added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BroadcastAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BroadcastAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Transaction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +48,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/8th semester/blockchain part&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -76,29 +78,13 @@
       <option name="project" value="LOCAL" />
       <updated>1691356511211</updated>
     </task>
-    <task id="LOCAL-00003" summary="Naming corrected">
-      <created>1691356802004</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1691356802004</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Minor corrections">
-      <created>1691393976949</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1691393976949</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Transactions added" />
-    <MESSAGE value="Naming corrected" />
-    <MESSAGE value="Minor corrections" />
-    <MESSAGE value="ToString overload added" />
-    <option name="LAST_COMMIT_MESSAGE" value="ToString overload added" />
+    <MESSAGE value="blockchain class added" />
+    <option name="LAST_COMMIT_MESSAGE" value="blockchain class added" />
   </component>
 </project>

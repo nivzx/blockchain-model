@@ -73,19 +73,13 @@ public class Node {
                 this.addToPool(tx);
             } else if (jsonObject.has("nonce")) {
                 Block block = gson.fromJson(message, Block.class);
-
-                // Check last hash of the blockchain (validation)
-
-                // If valid -> Remove Txs from tx pool
-                for (Transaction tx : block.getTransactions()) {
-                    if (this.getTxPool().contains(tx)) {
-                        this.removeFromPool(tx);
-                    }
-                }
-                System.out.println(block);
-
+                // Check last hash of the blockchain
                 // Add block to the blockchain
+
+
             }
+
+            System.out.println("Received message from peer " + clientSocket.getInetAddress() + ": " + message);
             clientSocket.close();
         } catch (IOException e) {
             e.printStackTrace();
