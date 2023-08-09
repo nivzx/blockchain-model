@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="aa7d71be-9b7f-46e0-b786-729676038b63" name="Changes" comment="blockchain class added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BroadcastAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BroadcastAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Blockchain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Blockchain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Node.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,8 +76,33 @@
       <option name="project" value="LOCAL" />
       <updated>1691356511211</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="blockchain class added">
+      <created>1691574943877</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1691574943877</updated>
+    </task>
+    <task id="LOCAL-00004" summary="blockchain class added">
+      <created>1691575837016</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1691575837016</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />

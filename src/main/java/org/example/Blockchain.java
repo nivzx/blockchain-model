@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 
 public class Blockchain {
+
+
     private List<Block> chain;
     private Map<String, Double> recordedLevels;
 
@@ -19,6 +21,16 @@ public class Blockchain {
         Block genesisBlock = createGenesisBlock();
         this.chain.add(genesisBlock);
         this.recordedLevels = new HashMap<>();
+    }
+
+    //get the previous hash
+
+    public String getLastBlockHash() {
+        return chain.get(chain.size() - 1).getHash();
+    }
+
+    public void addBlock(Block block){
+        this.chain.add(block);
     }
 
     // Create the genesis block

@@ -12,7 +12,7 @@ public class Node {
     private List<Transaction> txPool;
     private ServerSocket serverSocket;
     private final String ipAddress;
-    private List<Block> blockchain;
+    private Blockchain blockchain;
 
     public Node(String ipAddress, int port) {
         this.ipAddress = ipAddress;
@@ -73,8 +73,24 @@ public class Node {
                 this.addToPool(tx);
             } else if (jsonObject.has("nonce")) {
                 Block block = gson.fromJson(message, Block.class);
+
+
+
                 // Check last hash of the blockchain
+
+                    String lastBlockHash = blockchain.getLastBlockHash();
+
                 // Add block to the blockchain
+                if (lastBlockHash.equals(block.getPreviousHash())){
+                    blockchain.addBlock(block);
+                }
+
+
+
+
+
+
+
 
 
             }
