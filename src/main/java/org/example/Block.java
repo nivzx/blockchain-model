@@ -3,6 +3,7 @@ package org.example;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.security.MessageDigest;
 import java.util.List;
 
 public class Block {
@@ -14,13 +15,13 @@ public class Block {
     private long timestamp;
 
     // Constructor
-    public Block(int blockIndex, List<Transaction> transactions, String previousHash,String hash, int nonce) {
+    public Block(int blockIndex, List<Transaction> transactions, String previousHash, String hash, int nonce, long timestamp) {
         this.blockIndex = blockIndex;
         this.transactions = transactions;
         this.previousHash = previousHash;
         this.hash = hash;
         this.nonce = nonce;
-        this.timestamp = System.currentTimeMillis();
+        this.timestamp = timestamp;
     }
 
     // Getters

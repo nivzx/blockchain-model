@@ -7,22 +7,22 @@ package org.example;
 public class App 
 {
     public static void main(String[] args) {
+        String ip1 = "172.20.10.8"; //inushi
+        String ip2 = "172.20.10.6"; //nivin
+        String ip3 = "170.20.10.14"; //tharani
 
-        String ip1 = "192.168.8.100"; //inushi
-        String ip2 = "192.168.8.113"; //nivin
-        String ip3 = "192.168.8.103"; // tharu
+        Node node2 = new Node(ip2, 5001);
 
-        Node node1 = new Node(ip1, 5000);
-        Node node2 = new Node(ip1, 5001);
-        Node node3 = new Node(ip1, 5002);
+        node2.joinNetwork(ip1);
+        node2.joinNetwork(ip3);
 
-        node1.joinNetwork(ip2);
-        node1.joinNetwork(ip3);
-
-        BroadcastAPI api1 = new BroadcastAPI(node1, 8000);
+        BroadcastAPI api1 = new BroadcastAPI(node2, 8000);
         api1.start();
 
-        // Start broadcasting messages
-//        node1.broadcastMessage("Hello from node 1!");
+        while(true) {
+            if (!node2.getTxPool().isEmpty()) {
+                node2.mineBlock();
+            }
+        }
     }
 }

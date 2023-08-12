@@ -11,7 +11,6 @@ public class BroadcastAPI {
     public BroadcastAPI(Node node, int port) {
         this.node = node;
         this.port = port;
-        initializeWebServer();
     }
 
     private void initializeWebServer() {
@@ -37,13 +36,6 @@ public class BroadcastAPI {
 
             Gson gson = new Gson();
             Block block = gson.fromJson(requestBody, Block.class);
-
-            for (Transaction tx : block.getTransactions()) {
-                if (node.getTxPool().contains(tx)) {
-                    node.removeFromPool(tx);
-                }
-            }
-
             node.broadcastBlock(block);
 
             return "Block broadcasted";
@@ -51,6 +43,7 @@ public class BroadcastAPI {
     }
 
     public void start() {
+        initializeWebServer();
         Spark.awaitInitialization();
         System.out.println("API started on port " + port);
     }
